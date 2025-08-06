@@ -7,18 +7,14 @@
 SnakeGame::SnakeGame() { Reset(); }
 
 void SnakeGame::Reset() {
-<<<<<<< HEAD
     stepsSinceApple = 0;
-    stepsLeft = 100; // Inicializa com 100 passos
-=======
-    stepsSinceApple = 0; // Inicializa o contador
->>>>>>> origin/main
     for (int i = 0; i < 10; ++i)
         for (int j = 0; j < 10; ++j)
             grid[i][j] = 0;
     snake.clear();
     headX = 5; headY = 5; dir = 0; snakeLen = 3; apples = 0; steps = 0; gameOver = false;
     snake.push_back({headX, headY});
+    stepsLeft = 100; // Começa com 100 passos
     PlaceApple();
 }
 
@@ -32,19 +28,19 @@ void SnakeGame::PlaceApple() {
 
 void SnakeGame::Step(int action) {
     if (gameOver) return;
-    // 0: frente, 1: esquerda, 2: direita
     dir = (dir + (action == 1 ? 3 : (action == 2 ? 1 : 0))) % 4;
     int dx[] = {0, 1, 0, -1}, dy[] = {-1, 0, 1, 0};
     int nx = headX + dx[dir], ny = headY + dy[dir];
     if (nx < 0 || nx >= 10 || ny < 0 || ny >= 10 || std::find(snake.begin(), snake.end(), std::make_pair(nx, ny)) != snake.end()) {
-        gameOver = true; return;
+        gameOver = true;
+        return;
     }
     snake.insert(snake.begin(), {nx, ny});
     headX = nx; headY = ny;
     if (headX == appleX && headY == appleY) {
-        apples++; PlaceApple();
-<<<<<<< HEAD
-        stepsLeft += 1; // Ganha 1 passo ao comer maçã
+        apples++;
+        PlaceApple();
+        stepsLeft += 100; // Ganha 100 passos ao comer maçã
     } else {
         snake.pop_back();
     }
@@ -52,23 +48,6 @@ void SnakeGame::Step(int action) {
     if (stepsLeft <= 0) {
         gameOver = true;
         return;
-=======
-    } else {
-        snake.pop_back();
-    }
-    snake.insert(snake.begin(), {nx, ny});
-    headX = nx; headY = ny;
-    if (headX == appleX && headY == appleY) {
-        apples++; PlaceApple();
-        stepsSinceApple = 0; // Reseta ao comer maçã
-    } else {
-        snake.pop_back();
-        stepsSinceApple++; // Incrementa se não comeu
-        if (stepsSinceApple >= 100) {
-            gameOver = true; // Morre se passar de 50 sem comer
-            return;
-        }
->>>>>>> origin/main
     }
     steps++;
 }

@@ -22,9 +22,6 @@ private:
     int steps;
     bool gameOver;
     int stepsSinceApple;
-<<<<<<< HEAD
     int stepsLeft;
-=======
->>>>>>> origin/main
     std::vector<std::pair<int, int>> snake;
 };
