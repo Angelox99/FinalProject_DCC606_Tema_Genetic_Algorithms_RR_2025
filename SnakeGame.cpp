@@ -7,8 +7,12 @@
 SnakeGame::SnakeGame() { Reset(); }
 
 void SnakeGame::Reset() {
+<<<<<<< HEAD
     stepsSinceApple = 0;
     stepsLeft = 100; // Inicializa com 100 passos
+=======
+    stepsSinceApple = 0; // Inicializa o contador
+>>>>>>> origin/main
     for (int i = 0; i < 10; ++i)
         for (int j = 0; j < 10; ++j)
             grid[i][j] = 0;
@@ -39,6 +43,7 @@ void SnakeGame::Step(int action) {
     headX = nx; headY = ny;
     if (headX == appleX && headY == appleY) {
         apples++; PlaceApple();
+<<<<<<< HEAD
         stepsLeft += 1; // Ganha 1 passo ao comer maçã
     } else {
         snake.pop_back();
@@ -47,6 +52,23 @@ void SnakeGame::Step(int action) {
     if (stepsLeft <= 0) {
         gameOver = true;
         return;
+=======
+    } else {
+        snake.pop_back();
+    }
+    snake.insert(snake.begin(), {nx, ny});
+    headX = nx; headY = ny;
+    if (headX == appleX && headY == appleY) {
+        apples++; PlaceApple();
+        stepsSinceApple = 0; // Reseta ao comer maçã
+    } else {
+        snake.pop_back();
+        stepsSinceApple++; // Incrementa se não comeu
+        if (stepsSinceApple >= 100) {
+            gameOver = true; // Morre se passar de 50 sem comer
+            return;
+        }
+>>>>>>> origin/main
     }
     steps++;
 }

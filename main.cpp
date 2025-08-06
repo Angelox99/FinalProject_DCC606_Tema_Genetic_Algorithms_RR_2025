@@ -10,37 +10,61 @@
 
 // --- Configurações do Algoritmo Genético ---
 const int DNA_SIZE = 42;
+<<<<<<< HEAD
 const int POPULATION_SIZE = 1000;
 const int GENERATIONS = 1000;
 const double BEST_PROP = 0.10;
 const double MUTATION_PROB = 0.005;
 const int LOG_INTERVAL = 10;
+=======
+const int POPULATION_SIZE = 100;
+const int GENERATIONS = 10000;
+const double BEST_PROP = 0.10;
+const double MUTATION_PROB = 0.003;
+const int LOG_INTERVAL = 100;
+>>>>>>> origin/main
 
 // --- DNA manual: se vazio, usa GA; se preenchido, exibe direto este agente ---
 const std::vector<int> DNA_OVERRIDE = {
     //491, -292, -358, -462, -41, 674, 608, -2, 564, 92, -171, 943, 991, 740, 491, -478, 303, -855, 17, -186, -797, -780, 887, 106, 554, -67, -585, -262, -113, 222, 935, 188, 872, 305, 328, 606, 379, -16, 41, -299, -599, 532
+<<<<<<< HEAD
     // estrategia circular -602, -562, -341, 381, 488, 455, 256, -338, 978, -474, -583, 3, 852, -633, -50, 605, -998, 645, -999, 384, 777, -683, -272, -300, 396, 252, 591, -34, 230, 585, -680, 168, 904, 376, -402, 276, 998, -841, -638, 183, -684, -747
     // 20 macas 915, -340, 207, 635, 838, -124, -718, 53, -852, 233, 499, -483, -946, -517, -377, 502, -469, -371, -552, -226, -781, 41, -746, 608, -544, -46, -559, -288, 895, -10, 845, 425, -503, -464, 477, -825, 836, -936, 115, -13, 773, 265
 };
 
 // --- função fitines ---
+=======
+};
+
+// --- Função de fitness ---
+>>>>>>> origin/main
 double FitnessFunction(const std::vector<int>& chromosome) {
     std::vector<float> dna;
     for (int gene : chromosome)
         dna.push_back(gene / 1000.0f);
     SnakeGame env;
     NeuralNet net(dna);
+<<<<<<< HEAD
 
     int steps_taken = 0;
     while (!env.IsGameOver()) {
+=======
+    int steps = 200;
+    int steps_taken = 0;
+    for (int i = 0; i < steps && !env.IsGameOver(); ++i) {
+>>>>>>> origin/main
         auto sensors = env.GetSensors();
         int action = net.Decide(sensors);
         env.Step(action);
         steps_taken++;
     }
+<<<<<<< HEAD
     // Foco principal: número de maçãs coletadas
     double fitness = env.GetAppleCount() * 100.0 - steps_taken;
     return fitness;
+=======
+    return env.GetAppleCount() + 0.01 * steps_taken;
+>>>>>>> origin/main
 }
 
 // --- Função para desenhar o DNA ---
