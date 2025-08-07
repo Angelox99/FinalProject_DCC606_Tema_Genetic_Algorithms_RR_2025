@@ -1,59 +1,33 @@
-# 🧬 Projeto Final - Análise de Algoritmos: Algoritmos Genéticos
+# 🧠 Projeto Final - Algoritmos Genéticos aplicados ao jogo Snake
 
-Este repositório reúne o desenvolvimento do projeto final da disciplina de **Análise de Algoritmos**, com foco na implementação e estudo de **Algoritmos Genéticos (Genetic Algorithms)**.
+Este repositório contém o projeto final da disciplina **DCC606 – Análise de Algoritmos** da Universidade Federal de Roraima, desenvolvido por **Angelo Ferro** e **Kaio Guilherme**. O trabalho explora a aplicação de **Algoritmos Genéticos (AGs)** no treinamento de uma **Rede Neural Artificial (RNA)** para controlar um agente autônomo no ambiente do jogo Snake.
 
----
+## 🎯 Objetivo
+Treinar um agente inteligente que maximize a coleta de alimentos no jogo Snake, utilizando apenas métodos evolutivos, sem aprendizado supervisionado ou reforço clássico.
 
-## 📌 Objetivo
+## ⚙️ Metodologia
+- Protótipo inicial feito em Python com a biblioteca **DEAP**, usado apenas para validação conceitual
+- Implementação final desenvolvida em **C++**, com foco em desempenho e visualização
+- Rede Neural Feedforward representada por vetor de DNA com 42 parâmetros
+- Algoritmo Genético com:
+  - População de até 20.000 indivíduos
+  - 200 gerações
+  - Seleção elitista, crossover e mutação
+- Fitness baseada na eficiência: maçãs coletadas e passos dados
 
-Investigar e aplicar os princípios da evolução natural no contexto computacional, utilizando algoritmos genéticos para resolver problemas complexos. O projeto envolve leitura teórica, pesquisa aplicada, desenvolvimento prático e análise de desempenho dos algoritmos implementados.
+## 🧪 Resultados
+- Evolução de estratégias eficientes ao longo das gerações
+- Redução de comportamentos subótimos (como movimentação infinita) com ajustes no ambiente e nas penalizações
+- Visualização completa do agente em tempo real, incluindo sensores, ações, estrutura da rede neural e desempenho
 
----
+## 🖥️ Visualização
+A simulação foi renderizada com a biblioteca **Raylib**, oferecendo diagnóstico visual das decisões do agente e facilitando a análise dos comportamentos aprendidos.
 
-## 🧠 Base Teórica
+## 📁 Estrutura do Repositório
+- `snake_ga_cpp/`: Implementação final em C++ com visualização Raylib  
+- `Relatorio - Algoritmos Genéticos.pdf`: Documento técnico completo do projeto  
+- `slides_apresentacao/`: Apresentação do projeto em slides  
+- `referencias/`: Arquivos de apoio e fontes bibliográficas utilizadas  
 
-O projeto foi fundamentado na leitura e discussão do artigo:
-
-- **Janikow, C., & Clair, D. (1995)** – _Simulating Nature's Methods of Evolving the Best Design Solution_ (IEEE)
-
-Outras fontes complementares:
-- [ICMC/USP – Algoritmos Genéticos](https://sites.icmc.usp.br/andre/research/genetic/)
-- [Bioinfo – Algoritmos Genéticos](https://bioinfo.com.br/algoritmos-geneticos/)
-
----
-
-## 🧪 Etapas do Projeto
-
-### ✅ 1. Leitura e Discussão
-- Leitura crítica do artigo base.
-- Debate em grupo sobre a aplicabilidade dos conceitos em sistemas computacionais.
-
-### ✅ 2. Pesquisa Técnica
-- Estudo dos principais componentes de um algoritmo genético:
-  - População
-  - Cromossomos
-  - Função de avaliação (fitness)
-  - Crossover e mutação
-
-### ✅ 3. Escolha de Linguagem
-- **Python**: utilizado na fase inicial para prototipagem, pela facilidade de uso e bibliotecas disponíveis.
-- **C++**: escolhido para a versão final visando performance e controle mais preciso do algoritmo.
-
-### ✅ 4. Desenvolvimento
-- Criação de um ambiente simulado (inspirado no jogo do dinossauro da Google) para aplicar os conceitos evolutivos.
-- Reescrita da biblioteca **Genetics**, originalmente em Python, para **C++**.
-
----
-
-## 🧰 Tecnologias Utilizadas
-
-- Linguagens: **Python**, **C++**
-- Bibliotecas:
-  - [`DEAP`](https://github.com/DEAP/deap) – estrutura para algoritmos genéticos em Python
-  - `pygame` – simulações gráficas
-  - `matplotlib` – visualização dos dados e gráficos de evolução
-
----
-
-## 📂 Estrutura do Repositório
-
+## 📌 Palavras-chave
+`Algoritmos Genéticos`, `Otimização`, `Inteligência Artificial Evolutiva`, `Snake Game`, `C++`, `Rede Neural`, `Agente Autônomo`
